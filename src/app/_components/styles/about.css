@@ -1,0 +1,93 @@
+@media only screen and (min-width: 320px) {
+  .about-home {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .about-home {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .about-home {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding-bottom: 80px;
+  }
+  .about-home-left {
+    width: 44%;
+    height: 648px;
+    position: relative;
+  }
+  .about-home-left-bg {
+    position: absolute;
+    top: 50px;
+    opacity: 0.5;
+  }
+  .about-home-left-arrow {
+    position: absolute;
+    bottom: 30;
+    left: 10px;
+    transform: rotate(20deg);
+
+    width: 200px;
+    height: 200px;
+  }
+  .about-home-left-ab1 {
+    position: absolute;
+    top: 50px;
+    transform: rotate(-10deg);
+
+    width: 340px;
+    height: 400px;
+  }
+  .about-home-left-ab2 {
+    position: absolute;
+    top: 10px;
+    right: 0;
+  }
+  .about-home-left-line {
+    position: absolute;
+    bottom: 250px;
+    right: 60px;
+    transform: rotate(-10deg);
+
+    width: 100px;
+    height: 100px;
+  }
+  .about-home-left-mes {
+    position: absolute;
+    bottom: 90px;
+    left: 240px;
+    transform: rotate(0deg);
+
+    width: 250px;
+    height: 250px;
+  }
+  .about-home-left h2 {
+    position: absolute;
+    bottom: 229px;
+    left: 342px;
+    font-size: 40px;
+    color: #d96c2c;
+  }
+  .about-home-left p {
+    position: absolute;
+    bottom: 180px;
+    left: 332px;
+    font-size: 18px;
+    color: grey;
+  }
+  .about-right {
+    width: 44%;
+    height: 648px;
+    background-image: url("https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/background-dot-about-about-page.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center right;
+  }
+}

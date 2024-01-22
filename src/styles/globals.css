@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Peralta&family=Space+Grotesk:wght@500&display=swap");
+
+* {
+  font-family: "Space Grotesk" !important;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.seat-layout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.screen {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.seat-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.seat {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  color: white;
+  font-weight: 700;
+  background: #ededed;
+  font-size: 13px;
+}
+
+.selected-seats {
+  margin-top: 20px;
+}
+
+.slick-dots {
+  bottom: -150px !important;
+}
+.slick-dots li {
+  width: auto !important;
+  height: auto !important;
+}
+p {
+  line-height: 1.5em;
+}
+
+.image::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0) 65%);
+}
+
+.hover-item:hover {
+  border: 5px solid #d96c2c;
+}
+
+.hover-item {
+  transition: 0.3s;
+  border: 5px solid;
+  overflow: hidden;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.hover-item:hover button {
+  background: #d96c2c !important;
+  color: white !important;
+}
+.hover-item:hover .image img {
+  transform: scale3d(1, 1, 1);
+}
+.hover-item .image img {
+  transform: scale3d(1.05, 1.05, 1.05);
+  transition: 0.3s;
+}
+.slider-list .slick-slide {
+  display: flex;
+  justify-content: center;
+  height: 420px;
+}
+.slider-list .slick-prev::before,
+.slider-list .slick-next::before {
+  font-size: 40px;
+}
+
+.slider-list .slick-prev {
+  left: 20px;
+  z-index: 2;
+}
+.slider-list .slick-next {
+  right: 40px;
+  z-index: 2;
+}
+.hover-top .top-left img {
+  transition: 0.5s;
+}
+.hover-top:hover .top-left img {
+  top: -10px !important;
+}
+.hover-top:hover h3 {
+  color: #d96c2c !important;
+}
+.top-movie .slick-slide {
+  height: 260px;
+}
+.feedback-left .slick-next,
+.feedback-left .slick-prev {
+  display: none !important;
+}
+
+.upcomming:hover .info-upcomming {
+  top: 0 !important;
+}
+.upcomming:hover .bg-upcomming {
+  opacity: 0.8 !important;
+}
+/* .line-wraper {
+  mask-image: url("https://demo.ovatheme.com/aovis/wp-content/themes/aovis/assets/img/mask-image/mask-image-iconbox.png");
+  -webkit-mask-size: cover;
+  -webkit-mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+} */
+
+.hover-wrapper:hover .hover-child {
+  transform: scale(1.2);
+}
+.button-footer button {
+  background-color: black;
+  color: #d96c2c;
+  border: none;
+  padding: 16px;
+  font-size: 25px;
+}
+.ant-table-thead {
+  background: #d96c2c !important;
+  color: #fff;
+}
+
+.anmation-detail {
+  transition: 0.2s;
+  animation: myfirst 1s infinite;
+  animation-direction: alternate;
+}
+@keyframes myfirst {
+  from {
+    width: 100px;
+    height: 100px;
+  }
+
+  to {
+    width: 120px;
+    height: 120px;
+  }
+}
+.slick-slide {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.hover-img-list:hover {
+  transform: translateY(15px) !important;
+}
+
+.seat-layout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.screen {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.selected-seats {
+  margin-top: 20px;
+}
+
+.font-slider {
+  font-family: "Covered By Your Grace" !important;
+}
+/* talwin */

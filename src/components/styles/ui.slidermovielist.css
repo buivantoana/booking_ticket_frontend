@@ -1,0 +1,23 @@
+@media only screen and (min-width: 320px) {
+  .hover-item {
+    width: 100%;
+    height: 389px;
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .hover-item {
+    width: 100%;
+    height: 389px;
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .hover-item {
+    width: 264px;
+    height: 389px;
+    position: relative;
+  }
+}
