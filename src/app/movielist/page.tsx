@@ -16,12 +16,12 @@ const ListMovie = dynamic(() => import("../movielist/_components/ListMovie"), {
   ssr: false,
 });
 
-export default function Home() {
+export default function Home(props: any) {
   return (
     <div style={{ background: "white" }}>
       <LayoutClient>
         <Banner />
-        <ListMovie />
+        <ListMovie id={props} />
       </LayoutClient>
     </div>
   );

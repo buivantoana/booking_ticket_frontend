@@ -11,6 +11,10 @@ import { Food } from "../food/food.table";
 import { Movie } from "../movie/movie.table";
 import { Screenings } from "../screenings/screenings.table";
 import { Post } from "../post/post.table";
+import { Role } from "../role/role.table";
+import { Permission } from "../permission/permission.table";
+import { RolePermission } from "../role_permission/role_permission.table";
+import { User } from "../user/user.table";
 
 export default function Home() {
   let [check, setcheck] = useState<number>(0);
@@ -35,6 +39,18 @@ export default function Home() {
     } else if (id === 5) {
       setcheck(id);
       setname("Post");
+    } else if (id === 6) {
+      setcheck(id);
+      setname("User");
+    } else if (id === 7) {
+      setcheck(id);
+      setname("Role");
+    } else if (id === 8) {
+      setcheck(id);
+      setname("Permissions");
+    } else if (id === 9) {
+      setcheck(id);
+      setname("Role_Permissions");
     }
   }
   return (
@@ -42,8 +58,9 @@ export default function Home() {
       style={{
         display: "flex",
         backgroundImage: `url('https://raw.githubusercontent.com/buivantoana/host-file/main/body-background.png')`,
-        height: "100vh",
+        paddingLeft: "300px",
         width: "100%",
+        minHeight: "100vh",
       }}>
       <HeaderAdmin check={check} handlemenu={handlemenu} />
 
@@ -95,6 +112,26 @@ export default function Home() {
         {check === 5 && (
           <div style={{ color: "white", marginTop: "100px" }}>
             <Post />
+          </div>
+        )}
+        {check === 6 && (
+          <div style={{ color: "white", marginTop: "100px" }}>
+            <User />
+          </div>
+        )}
+        {check === 7 && (
+          <div style={{ color: "white", marginTop: "100px" }}>
+            <Role />
+          </div>
+        )}
+        {check === 8 && (
+          <div style={{ color: "white", marginTop: "100px" }}>
+            <Permission />
+          </div>
+        )}
+        {check === 9 && (
+          <div style={{ color: "white", marginTop: "100px" }}>
+            <RolePermission />
           </div>
         )}
       </div>

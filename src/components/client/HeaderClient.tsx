@@ -13,7 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../../image/logo-white.png";
 import { useTicketContext } from "@/store/UseContext";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { emailBooking, updateNotifyBooking } from "@/services/booking";
 import {
   differenceInDays,
@@ -28,24 +28,18 @@ const items: MenuProps["items"] = [
   {
     key: "1",
     label: (
-      <a
-        target='_blank'
-        rel='noopener noreferrer'
-        href='https://www.antgroup.com'>
-        Phim đang chiếu
-      </a>
+      <Link href={`/movielist?type=published`}>
+        <p>Phim đang chiếu</p>
+      </Link>
     ),
   },
 
   {
     key: "2",
     label: (
-      <a
-        target='_blank'
-        rel='noopener noreferrer'
-        href='https://www.antgroup.com'>
-        Phim sắp chiếu
-      </a>
+      <Link href={`/movielist?type=release_date`}>
+        <p>Phim sắp chiếu</p>
+      </Link>
     ),
   },
   {
@@ -65,6 +59,7 @@ const HeaderClient: React.FC = () => {
   const [search, setsearch] = useState<boolean>(false);
   const [user] = useLocalStorage("user", {});
   const router = useRouter();
+  const queryClient = useQueryClient();
   const { data } = useQuery<typeBooking[]>("email", {
     queryFn: () => {
       return emailBooking({
@@ -77,6 +72,9 @@ const HeaderClient: React.FC = () => {
     if (status === "new") {
       let res = await updateNotifyBooking(id);
       if (res?.status === 0) {
+        queryClient.invalidateQueries({
+          queryKey: ["email"],
+        });
         router.push(`/success?order_id=${id}`);
       }
     } else {
@@ -86,13 +84,23 @@ const HeaderClient: React.FC = () => {
   const content = (
     <div
       className=''
-      style={{ display: "flex", flexDirection: "column", width: "350px" }}>
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "400px",
+        height: "300px",
+        overflowY: "scroll",
+        overflowX: "hidden",
+        padding: "10px",
+      }}>
       {data &&
         data.length &&
-        data.map((item:any) => {
+        data.map((item: any) => {
           return (
             <>
-              <Badge dot={item.notify === "new" ? true : false}>
+              <Badge
+                dot={item.notify === "new" ? true : false}
+                style={{ marginTop: "5px" }}>
                 <div style={{ padding: "5px 5px" }}>
                   <div className='' style={{ display: "flex", gap: "5px" }}>
                     <Image
@@ -173,6 +181,7 @@ const HeaderClient: React.FC = () => {
     </div>
   );
 
+  console.log(data);
   return (
     <>
       <div
@@ -231,6 +240,7 @@ const HeaderClient: React.FC = () => {
           <Popover
             placement='bottomRight'
             title={"Thông báo"}
+            style={{ overflow: "hidden" }}
             content={content}>
             <Badge
               count={

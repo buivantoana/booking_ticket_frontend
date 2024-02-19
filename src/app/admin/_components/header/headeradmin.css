@@ -70,7 +70,7 @@
 .menu-admin {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 .headercontainer-right-search {
   background-color: #1a1f37;

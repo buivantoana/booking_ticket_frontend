@@ -3,7 +3,7 @@ import { uploadToCloudinary } from "@/lib/upload.cloudinary";
 import { addPost, deletePost, updatePost } from "@/services/post";
 import { useTicketContext } from "@/store/UseContext";
 import { Form } from "antd";
-import { el } from "date-fns/locale";
+
 import { useMutation, useQueryClient } from "react-query";
 
 type useCinemasMutationProps = {

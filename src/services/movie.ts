@@ -9,7 +9,7 @@ export const getMovie = async () => {
 };
 export const getOneMovie = async (id: string) => {
   try {
-    const response = await axios.get(`/movie/${id}`);
+    const response = await axios.get(`/movie/onemovie/${id}`);
     return response.data;
   } catch (error) {
     console.log(`error Movie`, error);
@@ -53,4 +53,8 @@ export const deleteMovie = async (id: string) => {
   } catch (error) {
     console.log(`error Movie`, error);
   }
+};
+
+export const getMovieScroll = async (type: any, cursor: any) => {
+  return axios.get(`/movie/scrollmovie?cursor=${cursor}&type=${type}`);
 };

@@ -15,12 +15,10 @@ const PrivateRoute: FC<PrivateRouteProps> = ({
 }) => {
   const [user] = useLocalStorage("user", {});
 
-  console.log(user);
-
   if (
     !user ||
     Object.keys(user).length === 0 ||
-    user.data[0].role === "MEMBER"
+    user.data[0].role === "member"
   ) {
     return redirect(path);
   }

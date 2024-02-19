@@ -3,6 +3,7 @@
 import { useLocalStorage } from "@/hook/useStorage";
 import { Authentication, RefeshToken } from "@/services/account";
 import React, { createContext, useReducer, useContext, useEffect } from "react";
+import { io } from "socket.io-client";
 
 export const ticketContext = createContext({});
 
@@ -60,6 +61,14 @@ const TicketContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useLocalStorage("user", {});
 
   useEffect(() => {
+    const socket = io("ws://localhost:8000");
+    let intervalId: NodeJS.Timeout;
+    socket.on("confirmEditPermission", (data) => {
+      if (data.email === user.data[0].email) {
+        handleRefreshToken();
+       
+      }
+    });
     const handleProtectedRequest = async () => {
       try {
         const response: any = await Authentication(user.token);
@@ -76,7 +85,19 @@ const TicketContextProvider = ({ children }: { children: React.ReactNode }) => {
         }
       } catch (error) {}
     };
+
+    // Gọi handleProtectedRequest ngay sau khi mount component
     handleProtectedRequest();
+
+    // Tạo và lưu ID của interval
+    intervalId = setInterval(() => {
+      handleProtectedRequest();
+    }, 29000);
+
+    // Cleanup function để xóa interval khi component unmount
+    return () => {
+      clearInterval(intervalId);
+    };
   }, []);
 
   const handleRefreshToken = async () => {

@@ -6,8 +6,10 @@ import {
   HomeOutlined,
   InfoOutlined,
   LogoutOutlined,
+  PartitionOutlined,
   TagsFilled,
   UserOutlined,
+  UserSwitchOutlined,
   UsergroupAddOutlined,
 } from "@ant-design/icons";
 import "./headeradmin.css";
@@ -21,7 +23,16 @@ export function HeaderAdmin({
   handlemenu: (id: number) => void;
 }) {
   return (
-    <div style={{ width: "300px", padding: "20px" }}>
+    <div
+      style={{
+        width: "300px",
+        padding: "20px",
+        height: "100vh",
+
+        position: "fixed",
+        top: 0,
+        left: 0,
+      }}>
       <div
         className=''
         style={{
@@ -152,7 +163,7 @@ export function HeaderAdmin({
             <div className='menu-admin-item-flex-right'>Post</div>
           </div>
         </div>
-        <h2 style={{ color: "white" }}>AccoutPage</h2>
+        <h5 style={{ color: "white" }}>AccoutPage</h5>
         <div
           onClick={() => handlemenu(6)}
           className={
@@ -165,9 +176,9 @@ export function HeaderAdmin({
                   ? "menu-admin-item-flex-left active-left"
                   : "menu-admin-item-flex-left"
               }>
-              <UserOutlined />
+              <UsergroupAddOutlined />
             </div>
-            <div className='menu-admin-item-flex-right'>Profile</div>
+            <div className='menu-admin-item-flex-right'>User</div>
           </div>
         </div>
         <div
@@ -182,9 +193,43 @@ export function HeaderAdmin({
                   ? "menu-admin-item-flex-left active-left"
                   : "menu-admin-item-flex-left"
               }>
-              <LogoutOutlined />
+              <UserSwitchOutlined />
             </div>
-            <div className='menu-admin-item-flex-right'>Đăng xuất</div>
+            <div className='menu-admin-item-flex-right'>Role</div>
+          </div>
+        </div>
+        <div
+          onClick={() => handlemenu(8)}
+          className={
+            check === 8 ? "menu-admin-item actives-menu" : "menu-admin-item "
+          }>
+          <div className='menu-admin-item-flex'>
+            <div
+              className={
+                check === 8
+                  ? "menu-admin-item-flex-left active-left"
+                  : "menu-admin-item-flex-left"
+              }>
+              <UserOutlined />
+            </div>
+            <div className='menu-admin-item-flex-right'>Permissions</div>
+          </div>
+        </div>
+        <div
+          onClick={() => handlemenu(9)}
+          className={
+            check === 9 ? "menu-admin-item actives-menu" : "menu-admin-item "
+          }>
+          <div className='menu-admin-item-flex'>
+            <div
+              className={
+                check === 9
+                  ? "menu-admin-item-flex-left active-left"
+                  : "menu-admin-item-flex-left"
+              }>
+              <PartitionOutlined />
+            </div>
+            <div className='menu-admin-item-flex-right'>Role_Permissions</div>
           </div>
         </div>
       </div>
